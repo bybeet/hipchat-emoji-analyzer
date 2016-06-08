@@ -1,0 +1,1 @@
+# HipChat Emoji Analyzer
