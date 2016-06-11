@@ -20,6 +20,12 @@
 # Start with total messages per room
 # Two dicts holding key -> value of room name -> count and room name -> days
 
+## TODO
+# - Graphs
+# - Whitelist/blacklist emojis and users
+# - Provide input/output dirs as program arg
+
+
 import json
 import os
 import re
