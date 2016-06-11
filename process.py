@@ -77,11 +77,12 @@ def processInput(s):
 
     return count
 
-def writeOutAnalyzedValue(userDict, emojiDict, hourDict):
+def writeOutAnalyzedValue(userDict, emojiDict, hourDict, totalCount):
     outputDict = dict()
     outputDict["user"] = userDict
     outputDict["emoji"] = emojiDict
     outputDict["hour"] = hourDict
+    outputDict["total"] = totalCount
 
     outFile = open(os.path.join(OUTPUT_DIR, OUTPUT_FILENAME), 'w')
     outFile.write(json.dumps(outputDict))
@@ -135,4 +136,4 @@ printSortedValue(hourCount)
 print("\nTotal:")
 print(totalCount)
 
-writeOutAnalyzedValue(userDict=userCount, emojiDict=emojiCount, hourDict=hourCount)
+writeOutAnalyzedValue(userDict=userCount, emojiDict=emojiCount, hourDict=hourCount, totalCount=totalCount)
