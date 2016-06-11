@@ -33,6 +33,12 @@ import time
 from collections import defaultdict
 from datetime import datetime
 
+
+INPUT_DIR = "hipchat_export"
+OUTPUT_DIR = "output"
+
+OUTPUT_FILENAME = "analysis.json"
+
 def printSortedValue(d):
     numberToOuput = 24
     for x in sorted(d, key=d.get, reverse=True):
@@ -70,6 +76,15 @@ def processInput(s):
             count += 1
 
     return count
+
+def writeOutAnalyzedValue(userDict, emojiDict, hourDict):
+    outputDict = dict()
+    outputDict["user"] = userDict
+    outputDict["emoji"] = emojiDict
+    outputDict["hour"] = hourDict
+
+    outFile = open(os.path.join(OUTPUT_DIR, OUTPUT_FILENAME), 'w')
+    outFile.write(json.dumps(outputDict))
 
 sampleInput = """[
 {
@@ -117,3 +132,5 @@ print("\nHours:")
 printSortedValue(hourCount)
 print("\nTotal:")
 print(totalCount)
+
+writeOutAnalyzedValue(userDict=userCount, emojiDict=emojiCount, hourDict=hourCount)
