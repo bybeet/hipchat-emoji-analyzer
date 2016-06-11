@@ -33,19 +33,10 @@ import time
 from collections import defaultdict
 from datetime import datetime
 
-
 INPUT_DIR = "hipchat_export"
 OUTPUT_DIR = "output"
 
 OUTPUT_FILENAME = "analysis.json"
-
-def printSortedValue(d):
-    numberToOuput = 24
-    for x in sorted(d, key=d.get, reverse=True):
-        print(x, d[x])
-        numberToOuput -= 1
-        if(numberToOuput <= 0):
-            break
 
 def getAllEmojis(s):
     return re.findall(r"\(([A-Za-z0-9]+)\)", s)
@@ -126,14 +117,5 @@ end_time = time.time()
 elapsed_time = end_time - start_time
 
 print("\nElapsed Time: " + str(elapsed_time))
-
-print("\nUsers:")
-printSortedValue(userCount)
-print("\nEmojis:")
-printSortedValue(emojiCount)
-print("\nHours:")
-printSortedValue(hourCount)
-print("\nTotal:")
-print(totalCount)
 
 writeOutAnalyzedValue(userDict=userCount, emojiDict=emojiCount, hourDict=hourCount, totalCount=totalCount)
