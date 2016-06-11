@@ -29,6 +29,7 @@
 import json
 import os
 import re
+import time
 from collections import defaultdict
 from datetime import datetime
 
@@ -94,7 +95,7 @@ hourCount = defaultdict(int)
 
 totalCount = 0
 
-# processInput(sampleInput)
+start_time = time.time()
 
 for root, directories, files in os.walk("./hipchat_export"):
     for file in files:
@@ -103,6 +104,10 @@ for root, directories, files in os.walk("./hipchat_export"):
             print("Processing file: " + root + "/" + file)
             totalCount += processInput(f.read())
             f.close()
+
+end_time = time.time()
+
+print("Elapsed Time: " + (end_time - start_time))
 
 print("Users:")
 printSortedValue(userCount)
