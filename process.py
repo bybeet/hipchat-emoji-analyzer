@@ -1,30 +1,6 @@
-# Json Input Structure
-# [
-#  {
-#     "date":"2016-03-17T13:59:11+0000",
-#     "from":{
-#        "name":"First Last",
-#        "user_id":650669
-#      },
-#      "message":"message contents"
-#     },
-#     ...
-# ]
-
-# Read through all files in the ./rooms
-
 # Interested on in emoji statistics
 # - Also want to keep track of emoji uses per room & user
 # - Also also want to know total days and messages per room & user
-
-# Start with total messages per room
-# Two dicts holding key -> value of room name -> count and room name -> days
-
-## TODO
-# - Graphs
-# - Whitelist/blacklist emojis and users
-# - Provide input/output dirs as program arg
-
 
 import json
 import os
