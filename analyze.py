@@ -112,7 +112,7 @@ totalCount = 0
 
 start_time = time.time()
 
-for root, directories, files in os.walk("./hipchat_export"):
+for root, directories, files in os.walk(INPUT_DIR):
     for file in files:
         if "json" in file:
             f = open(os.path.join(root, file), 'r')
@@ -122,9 +122,11 @@ for root, directories, files in os.walk("./hipchat_export"):
 
 end_time = time.time()
 
-print("Elapsed Time: " + (end_time - start_time))
+elapsed_time = end_time - start_time
 
-print("Users:")
+print("\nElapsed Time: " + str(elapsed_time))
+
+print("\nUsers:")
 printSortedValue(userCount)
 print("\nEmojis:")
 printSortedValue(emojiCount)
