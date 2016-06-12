@@ -17,11 +17,15 @@ dataFile = open(os.path.join(OUTPUT_DIR, OUTPUT_FILENAME), 'r')
 
 jsonData = json.loads(dataFile.read())
 
+usersDict = jsonData["user"]
+emojiDict = jsonData["emoji"]
+hourDict = jsonData["hour"]
+
 print("\nUsers:")
-printSortedValue(jsonData["user"])
+printSortedValue(usersDict)
 print("\nEmojis:")
-printSortedValue(jsonData["emoji"])
+printSortedValue(emojiDict)
 print("\nHours:")
-printSortedValue(jsonData["hour"])
+printSortedValue(hourDict)
 print("\nTotal:")
 print(jsonData["total"])
